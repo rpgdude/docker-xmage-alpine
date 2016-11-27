@@ -82,7 +82,7 @@ RUN curl http://xmage.de/xmage/config.json | jq '.XMage.location' | xargs curl -
  && unzip xmage.zip \
  && rm xmage.zip \
  && rm -rf /xmage/mage-client \
- && apk del curl jq
+ && apk del curl jq #redo
 
 COPY dockerStartServer.sh /xmage/mage-server/
 
