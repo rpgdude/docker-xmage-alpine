@@ -85,6 +85,8 @@ RUN curl --silent --show-error http://xmage.de/xmage/config.json | jq '.XMage.lo
 
 COPY dockerStartServer.sh /xmage/mage-server/
 
+RUN dos2unix /xmage/mage-server/dockerStartServer.sh
+
 RUN chmod +x \
     /xmage/mage-server/startServer.sh \
     /xmage/mage-server/dockerStartServer.sh
