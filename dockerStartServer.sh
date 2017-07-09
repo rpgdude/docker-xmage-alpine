@@ -9,5 +9,5 @@ sed -i -e "s#\(secondaryBindPort=\)[\"].*[\"]#\1\"$XMAGE_DOCKER_SEONDARY_BIND_PO
 sed -i -e "s#\(maxSecondsIdle=\)[\"].*[\"]#\1\"$XMAGE_DOCKER_MAX_SECONDS_IDLE\"#g" ${XMAGE_CONFIG}
 sed -i -e "s#\(authenticationActivated=\)[\"].*[\"]#\1\"$XMAGE_DOCKER_AUTHENTICATION_ACTIVATED\"#g" ${XMAGE_CONFIG}
 
-LIB=$(ls /xmage/mage-server/lib | egrep "mage-server-[0-9]+.[0-9]+.[0-9]+.jar" | rev | cut -c 5- | rev)
+LIB=$(ls /xmage/mage-server/lib | egrep "mage-server-[0-9]+.[0-9]+.[0-9]+.jar")
 java -Xms256M -Xmx512M -XX:MaxPermSize=256m -Djava.security.policy=./config/security.policy -Djava.util.logging.config.file=./config/logging.config -Dlog4j.configuration=file:./config/log4j.properties -jar ./lib/$LIB
