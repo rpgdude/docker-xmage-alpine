@@ -26,3 +26,4 @@ For more informations on this topic  see: https://docs.docker.com/engine/referen
         -e "XMAGE_DOCKER_SERVER_ADDRESS=example.com" \
         -e "XMAGE_DOCKER_SERVER_NAME=xmage-server" \
         goesta/xmage
+test
