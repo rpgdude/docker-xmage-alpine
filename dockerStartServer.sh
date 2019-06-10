@@ -9,7 +9,7 @@ sed -i -e "s#\(secondaryBindPort=\)[\"].*[\"]#\1\"$XMAGE_DOCKER_SEONDARY_BIND_PO
 sed -i -e "s#\(maxSecondsIdle=\)[\"].*[\"]#\1\"$XMAGE_DOCKER_MAX_SECONDS_IDLE\"#g" ${XMAGE_CONFIG}
 sed -i -e "s#\(authenticationActivated=\)[\"].*[\"]#\1\"$XMAGE_DOCKER_AUTHENTICATION_ACTIVATED\"#g" ${XMAGE_CONFIG}
 
-echo "$XMAGE_DOCKER_SERVER_ADDRESS 0.0.0.0" >> /etc/hosts
+echo "0.0.0.0 $XMAGE_DOCKER_SERVER_ADDRESS" >> /etc/hosts
 
 LIB=$(ls /xmage/mage-server/lib | egrep "mage-server-[0-9]+.[0-9]+.[0-9]+.jar")
 java -Xms256M -Xmx512M -Djava.security.policy=./config/security.policy -Djava.util.logging.config.file=./config/logging.config -Dlog4j.configuration=file:./config/log4j.properties -jar ./lib/$LIB
