@@ -1,5 +1,5 @@
 # Using pre-built alpine with server jre
-FROM anapsix/alpine-java:8_server-jre
+FROM openjdk:8-jre-alpine
 
 # XMage settings
 
