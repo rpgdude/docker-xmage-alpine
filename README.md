@@ -30,3 +30,27 @@ For more informations on this topic  see: https://docs.docker.com/engine/referen
         
 ## Deploy in Azure
 
+It is easy to run this container using Azure Container Instances.
+Examples using Azure Shell:
+
+You need a resource group for your deployment. If you don't already have one, create one using the shell.
+    
+    az group create --name myResourceGroup --location eastus
+    
+Make note of the location. This is used for your FQDN later.
+Deploy your container:
+
+    az container create \
+    -g myResourceGroup \
+    --name xmage \
+    --image flippyboy/xmage-alpine \
+    --ports 17171 17179 \
+    --dns-name-label examplexmageserver \
+    --cpu 1 \
+    --memory 2 \
+    --environment-variables XMAGE_DOCKER_SERVER_ADDRESS=examplexmageserver.eastus.azurecontainer.io XMAGE_DOCKER_SERVER_NAME=xmage-server XMAGE_DOCKER_AUTHENTICATION_ACTIVATED=false
+    
+`-g` should be the same resource group you created earlier  
+`--name` is what your resource in Azure will be named   
+`--dns-name-label` must be a unique name for your region    
+`XMAGE_DOCKER_SERVER_ADDRESS` should be a combination of your DNS label and the location/region you placed your resource group in
