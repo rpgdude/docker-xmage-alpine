@@ -1,0 +1,9 @@
+#!/bin/bash
+ver=$(curl -s http://xmage.de/xmage/config.json | jq '.XMage.version' -r)
+read -ra ADDR <<< "$ver"
+echo ${ADDR[0]}
+docker build \
+    -t flippyboy/xmage-alpine:${ADDR[0]} \
+    -t flippyboy/xmage-alpine:latest \
+    --build-arg XMAGE_VERSION=${ADDR[0]} \
+    --build-arg BUILD_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ") .
