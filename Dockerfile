@@ -10,6 +10,12 @@ ENV XMAGE_DOCKER_SERVER_ADDRESS="0.0.0.0" \
     XMAGE_DOCKER_AUTHENTICATION_ACTIVATED="false" \
     XMAGE_DOCKER_SERVER_NAME="mage-server"
 
+# Build args
+ARG XMAGE_VERSION
+ARG BUILD_TIME
+LABEL xmage_version="${XMAGE_VERSION}"
+LABEL build_time="${BUILD_TIME}"
+
 # Install prereqs
 
 RUN set -ex && \
