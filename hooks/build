@@ -1,4 +1,5 @@
 #!/bin/bash
+apt install jq
 ver=$(curl -s http://xmage.de/xmage/config.json | jq '.XMage.version' -r)
 read -ra ADDR <<< "$ver"
 echo ${ADDR[0]}
