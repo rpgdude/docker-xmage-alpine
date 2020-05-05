@@ -1,0 +1,5 @@
+#!/bin/bash
+ver=$(curl -s http://xmage.de/xmage/config.json | jq '.XMage.version' -r)
+read -ra ADDR <<< "$ver"
+docker tag $IMAGE_NAME $DOCKER_REPO:${ADDR[0]}
+docker push $DOCKER_REPO:${ADDR[0]}
