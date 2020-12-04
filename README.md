@@ -9,7 +9,7 @@
         -e "XMAGE_DOCKER_SERVER_ADDRESS=example.com" \
         -e "XMAGE_DOCKER_AUTHENTICATION_ACTIVATED=false"\
         -e "XMAGE_DOCKER_SERVER_NAME=xmage-server" \
-        flippyboy/xmage-alpine
+        rpgdude/xmage-alpine
 
 
 Using the `XMAGE_*` environment variables you can modify the `config.xml` file.
@@ -25,7 +25,7 @@ For more informations on this topic  see: https://docs.docker.com/engine/referen
         -c 512
         -e "XMAGE_DOCKER_SERVER_ADDRESS=example.com" \
         -e "XMAGE_DOCKER_SERVER_NAME=xmage-server" \
-        flippyboy/xmage
+        rpgdude/xmage
         
         
 ## Deploy in Azure
@@ -43,7 +43,7 @@ Deploy your container:
     az container create \
     -g myResourceGroup \
     --name xmage \
-    --image flippyboy/xmage-alpine \
+    --image rpgdude/xmage-alpine \
     --ports 17171 17179 \
     --dns-name-label examplexmageserver \
     --cpu 1 \
