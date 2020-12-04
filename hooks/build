@@ -3,7 +3,7 @@ apt-get install jq -y
 ver=$(curl -s http://xmage.de/xmage/config.json | jq '.XMage.version' -r)
 read -ra ADDR <<< "$ver"
 docker build \
-    -t flippyboy/xmage-alpine:${ADDR[0]} \
-    -t flippyboy/xmage-alpine:latest \
+    -t rpgdude/xmage-alpine:${ADDR[0]} \
+    -t rpgdude/xmage-alpine:latest \
     --build-arg XMAGE_VERSION=${ADDR[0]} \
     --build-arg BUILD_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ") .
